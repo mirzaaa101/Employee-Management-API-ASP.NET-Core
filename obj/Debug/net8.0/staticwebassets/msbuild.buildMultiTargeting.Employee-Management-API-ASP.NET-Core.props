@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/Employee-Management-API-ASP.NET-Core.props" />
-</Project>

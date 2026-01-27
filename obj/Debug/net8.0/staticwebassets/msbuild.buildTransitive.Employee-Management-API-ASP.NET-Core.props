@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/Employee-Management-API-ASP.NET-Core.props" />
-</Project>

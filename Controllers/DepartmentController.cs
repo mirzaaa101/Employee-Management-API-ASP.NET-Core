@@ -25,5 +25,29 @@ namespace Employee_Management_API_ASP.NET_Core.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction("GetDepartments", new { DeptId = department.DeptId, DeptNam = department.DeptName }, department);
         }
+        [HttpPut("UpdateDepartment")]
+        public async Task<IActionResult> UpdateDepartment(int DeptId, string DeptName)
+        {
+            var department = await _context.Departments.FindAsync(DeptId);
+            if (department == null)
+            {
+                return NotFound();
+            }
+            department.DeptName = DeptName;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        [HttpDelete("DeleteDepartment")]
+        public async Task<IActionResult> DeleteDepartment(int DeptId)
+        {
+            var department = await _context.Departments.FindAsync(DeptId);
+            if (department == null)
+            {
+                return NotFound();
+            }
+            _context.Departments.Remove(department);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }
